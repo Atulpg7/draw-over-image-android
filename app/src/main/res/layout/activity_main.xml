@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--    Paint View related-->
+    <com.example.takeleapassignment.CustomImageView
+        android:id="@+id/idCVMainView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/idBarrieBottomOptions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--    Add image Hint Related-->
+    <ImageView
+        android:id="@+id/idIVAddImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:contentDescription="@string/image_description"
+        android:src="@drawable/add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/idTVAddImageHint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="@string/select_image_from_gallery"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/idIVAddImage" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/idGAddImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:constraint_referenced_ids="idIVAddImage,idTVAddImageHint" />
+
+    <!--    Bottom options-->
+    <!--    SeekBar and brush size-->
+    <SeekBar
+        android:id="@+id/idSBBrushSizeChanger"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:thumbTint="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/idHSVBottomOptions"
+        app:layout_constraintEnd_toStartOf="@id/idTVBrushSize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/idTVBrushSize" />
+
+    <TextView
+        android:id="@+id/idTVBrushSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/_0"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/idHSVBottomOptions"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/idGBrushOptions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="idSBBrushSizeChanger,idTVBrushSize" />
+
+    <!--    Brush, Color and Rest controls-->
+    <HorizontalScrollView
+        android:id="@+id/idHSVBottomOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:id="@+id/idLLBottomOptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:id="@+id/idIVBrush"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="15dp"
+                android:contentDescription="@string/image_description"
+                android:padding="5dp"
+                android:src="@drawable/brush" />
+
+            <ImageView
+                android:id="@+id/idIVBlackColor"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/color_selected"
+                android:contentDescription="@string/image_description"
+                android:padding="5dp"
+                android:src="@drawable/color_selector"
+                app:tint="@color/black" />
+
+            <ImageView
+                android:id="@+id/idIVRedColor"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="15dp"
+                android:contentDescription="@string/image_description"
+                android:padding="5dp"
+                android:src="@drawable/color_selector"
+                app:tint="@color/red" />
+
+            <ImageView
+                android:id="@+id/idIVYellowColor"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="15dp"
+                android:contentDescription="@string/image_description"
+                android:padding="5dp"
+                android:src="@drawable/color_selector"
+                app:tint="@color/yellow" />
+
+            <ImageView
+                android:id="@+id/idIVGreenColor"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="15dp"
+                android:contentDescription="@string/image_description"
+                android:padding="5dp"
+                android:src="@drawable/color_selector"
+                app:tint="@color/green" />
+
+            <ImageView
+                android:id="@+id/idIVBlueColor"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="15dp"
+                android:contentDescription="@string/image_description"
+                android:padding="5dp"
+                android:src="@drawable/color_selector"
+                app:tint="@color/blue" />
+
+            <ImageView
+                android:id="@+id/idIVOrangeColor"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="15dp"
+                android:contentDescription="@string/image_description"
+                android:padding="5dp"
+                android:src="@drawable/color_selector"
+                android:visibility="gone"
+                app:tint="@color/orange" />
+
+            <ImageView
+                android:id="@+id/idIVErase"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="15dp"
+                android:contentDescription="@string/image_description"
+                android:padding="5dp"
+                android:src="@drawable/eraser" />
+
+            <ImageView
+                android:id="@+id/idIVSave"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="15dp"
+                android:contentDescription="@string/image_description"
+                android:padding="5dp"
+                android:src="@drawable/ic_save"
+                android:visibility="gone" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/idBarrieBottomOptions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        app:constraint_referenced_ids="idHSVBottomOptions" />
+</androidx.constraintlayout.widget.ConstraintLayout>
